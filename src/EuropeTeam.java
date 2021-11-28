@@ -1,45 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class EuropeTeam implements OlympicsTeams {
-    private String name;
+
     private int teamMembers;
     private int teamMedals;
 
-    public void printTeamName() {
+    private List<OlympicsTeams> childOlympicTeams = new ArrayList<>();
+
+    public String printTeamNameAndMembers (){
+        String result = "Team: "+getClass().getName() +"\n";
+        for (int i = 0; i<childOlympicTeams.size(); i++){
+           result +=  childOlympicTeams.get(i).printTeamNameAndMembers()+"\n";
+
+        }
+        return result;
     }
 
-    public void printTeamMembers() {
+    public String printTeamNameAndMedals (){
+        String result = "Team: "+ getClass().getName() +"\n";
+        for (int i = 0; i<childOlympicTeams.size(); i++){
+            result += childOlympicTeams.get(i).printTeamNameAndMedals()+"\n";
+        }
+        return result;
     }
 
-    public void printTeamMedals() {
-    }
-}
-class GermanyTeam extends EuropeTeam {
-
-    private String name;
-    private int teamMembers;
-    private int teamMedals;
-
-    public void printTeamName (){
+    public int printNumberOfAthletes() {
+        return teamMembers;
     }
 
-    public void printTeamMembers() {
+    public int printNumberOfMedals() {
+        return teamMedals;
     }
 
-    public void printTeamMedals() {
-    }
-}
-
-class ItalyTeam extends EuropeTeam {
-
-    private String name;
-    private int teamMembers;
-    private int teamMedals;
-
-    public void printTeamName (){
+    public void addOlympicsTeams(OlympicsTeams team) {
+        childOlympicTeams.add(team);
     }
 
-    public void printTeamMembers() {
-    }
-
-    public void printTeamMedals() {
-    }
 }

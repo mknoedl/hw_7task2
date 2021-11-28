@@ -1,16 +1,17 @@
-public class SouthAmericaTeam implements OlympicsTeams {
-
-    private String name;
+public class Shooting implements OlympicsTeams {
     private int teamMembers;
     private int teamMedals;
 
+    public Shooting(int teamMembers, int teamMedals){
+        this.teamMembers = teamMembers;
+        this.teamMedals = teamMedals;
+    }
     public String printTeamName() {
         return getClass().getSimpleName();
     }
-
     @Override
     public String printTeamNameAndMembers() {
-       return "Team: " + printTeamName()
+        return "Team: " + printTeamName()
                 + "Number of Athletes: " + printNumberOfAthletes();
     }
 
@@ -29,5 +30,4 @@ public class SouthAmericaTeam implements OlympicsTeams {
     public int printNumberOfMedals() {
         return teamMedals;
     }
-
 }

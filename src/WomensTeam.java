@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class AsiaTeam implements OlympicsTeams {
+public class WomensTeam implements OlympicsTeams {
 
     private int teamMembers;
     private int teamMedals;

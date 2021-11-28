@@ -1,14 +1,34 @@
 public class AfricaTeam implements OlympicsTeams {
-    private String name;
     private int teamMembers;
     private int teamMedals;
 
-    public void printTeamName() {
+    public AfricaTeam(int teamMembers, int teamMedals){
+        this.teamMembers = teamMembers;
+        this.teamMedals = teamMedals;
+    }
+    public String printTeamName() {
+        return getClass().getSimpleName();
     }
 
-    public void printTeamMembers() {
+    @Override
+    public String printTeamNameAndMembers() {
+        return "Team: " + printTeamName()
+                + "Number of Athletes: " + printNumberOfAthletes();
     }
 
-    public void printTeamMedals() {
+    @Override
+    public String printTeamNameAndMedals() {
+        return "Team: " + printTeamName()
+                + "Number of Gold medals: " + printNumberOfMedals();
+    }
+
+    @Override
+    public int printNumberOfAthletes() {
+        return teamMembers;
+    }
+
+    @Override
+    public int printNumberOfMedals() {
+        return teamMedals;
     }
 }
